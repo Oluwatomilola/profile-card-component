@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Card Component</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="profile-card" data-testid="profile-card">
+        <div class="status-indicator" data-testid="status-indicator"></div>
+        <div class="profile-image" data-testid="profile-image">
+            <span data-testid="profile-initial">OA</span>
+        </div>
+        <h1 class="profile-name" data-testid="profile-name">Oluwatomilola Ayeni</h1>
+        <p class="profile-title" data-testid="profile-title">Frontend Developer</p>
+        <p class="profile-description" data-testid="profile-description">
+            Passionate about creating beautiful, accessible, and performant web experiences. 
+            Love working with modern technologies and clean code.
+        </p>
+        <div class="profile-stats" data-testid="profile-stats">
+            <div class="stat-item" data-testid="stat-projects">
+                <span class="stat-number" data-testid="stat-projects-number">40</span>
+                <span class="stat-label" data-testid="stat-projects-label">Projects</span>
+            </div>
+        </div>
+        <div class="profile-actions" data-testid="profile-actions">
+            <button class="btn btn-primary" data-testid="btn-follow">Follow</button>
+            <button class="btn btn-secondary" data-testid="btn-message">Message</button>
+        </div>
+        <div class="social-links" data-testid="social-links">
+            <a href="https://github.com/Oluwatomilola" class="social-link" data-testid="social-github" aria-label="GitHub">
+                <span>GitHub</span>
+            </a>
+            <a href="https://twitter.com/hadassahayeni" class="social-link" data-testid="social-twitter" aria-label="Twitter">
+                <span>X</span>
+            </a>
+        </div>
+        
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
