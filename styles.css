@@ -22,11 +22,11 @@ header { width: 100%; padding: 1rem 0; text-align: center; }
 main {
     background: #fff;
     border-radius: 16px;
-    padding: 2rem;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    /*padding: 2rem;*/
+    /*box-shadow: 0 20px 40px rgba(0,0,0,0.1);*/
     width: 90%;
     max-width: 480px;
-    margin-bottom: 3rem;
+    /*margin-bottom: 3rem;*/
 }
 
 h1, h2 { color: #1a202c; margin-bottom: 1rem; }
