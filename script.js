@@ -1,40 +1,70 @@
-// Profile Card Component
-class ProfileCard {
-    constructor() {
-      this.card = document.querySelector('[data-test-id="profile-card"]');
-      this.statusIndicator = document.querySelector('[data-test-id="status-indicator"]');
-      this.socialLinks = document.querySelectorAll('[data-test-id="social-link"]');
-  
-      this.init();
+document.addEventListener('DOMContentLoaded', () => {
+    // ---------- PROFILE CARD ----------
+    const statusIndicator = document.querySelector('[data-test-id="status-indicator"]');
+    if (statusIndicator) {
+        const statuses = [
+            { text: 'Online', color: '#22c55e' },
+            { text: 'Away', color: '#facc15' },
+            { text: 'Do Not Disturb', color: '#ef4444' },
+            { text: 'Offline', color: '#9ca3af' },
+        ];
+        statusIndicator.addEventListener('click', () => {
+            const random = statuses[Math.floor(Math.random() * statuses.length)];
+            statusIndicator.style.backgroundColor = random.color;
+            statusIndicator.setAttribute('title', random.text);
+        });
     }
-  
-    init() {
-      console.log('Profile Card initialized');
-      this.setupEventListeners();
-      this.setRandomStatus();
+
+    // ---------- CONTACT FORM ----------
+    const form = document.getElementById('contactForm');
+    if (form) {
+        const successMsg = document.querySelector('[data-testid="test-contact-success"]');
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            let valid = true;
+
+            const name = form.name;
+            const email = form.email;
+            const subject = form.subject;
+            const message = form.message;
+
+            const showError = (input, msg) => {
+                const err = document.getElementById(`error-${input.name}`);
+                err.textContent = msg;
+                valid = false;
+            };
+
+            const clearError = (input) => {
+                document.getElementById(`error-${input.name}`).textContent = '';
+            };
+
+            // name
+            if (!name.value.trim()) showError(name, 'Name is required');
+            else clearError(name);
+
+            // email
+            const emailPattern = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+            if (!email.value.trim()) showError(email, 'Email is required');
+            else if (!emailPattern.test(email.value)) showError(email, 'Invalid email');
+            else clearError(email);
+
+            // subject
+            if (!subject.value.trim()) showError(subject, 'Subject is required');
+            else clearError(subject);
+
+            // message
+            if (!message.value.trim()) showError(message, 'Message is required');
+            else if (message.value.trim().length < 10) showError(message, 'At least 10 characters');
+            else clearError(message);
+
+            if (valid) {
+                successMsg.hidden = false;
+                form.reset();
+                setTimeout(() => (successMsg.hidden = true), 4000);
+            } else {
+                successMsg.hidden = true;
+            }
+        });
     }
-  
-    setupEventListeners() {
-      this.statusIndicator.addEventListener('click', () => this.setRandomStatus());
-    }
-  
-    // Randomly change user status color and tooltip
-    setRandomStatus() {
-      const statuses = [
-        { text: 'Online', color: '#22c55e' },
-        { text: 'Away', color: '#facc15' },
-        { text: 'Do not disturb', color: '#ef4444' },
-        { text: 'Offline', color: '#9ca3af' },
-      ];
-  
-      const randomStatus = statuses[Math.floor(Math.random() * statuses.length)];
-      this.statusIndicator.style.backgroundColor = randomStatus.color;
-      this.statusIndicator.setAttribute('title', randomStatus.text);
-    }
-  }
-  
-  // Initialize when DOM is loaded
-  document.addEventListener('DOMContentLoaded', () => {
-    new ProfileCard();
-  });
-  
+});
