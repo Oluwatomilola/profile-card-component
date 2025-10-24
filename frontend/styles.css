@@ -1,0 +1,90 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #2d3748;
+}
+
+header { width: 100%; padding: 1rem 0; text-align: center; }
+.nav a {
+    color: #fff;
+    margin: 0 0.5rem;
+    text-decoration: none;
+    font-weight: 600;
+}
+.nav a[aria-current="page"] { text-decoration: underline; }
+
+main {
+    background: #fff;
+    border-radius: 16px;
+    /*padding: 2rem;*/
+    /*box-shadow: 0 20px 40px rgba(0,0,0,0.1);*/
+    width: 90%;
+    max-width: 480px;
+    /*margin-bottom: 3rem;*/
+}
+
+h1, h2 { color: #1a202c; margin-bottom: 1rem; }
+
+/* PROFILE CARD */
+.profile-card {
+    text-align: center;
+    position: relative;
+    padding: 2rem 1rem;
+}
+.status-indicator {
+    width: 12px; height: 12px;
+    border-radius: 50%;
+    background: #22c55e;
+    position: absolute; top: 1rem; right: 1rem;
+}
+.profile-image img {
+    width: 150px; height: 150px; border-radius: 50%;
+    object-fit: cover; margin-bottom: 1rem;
+}
+.profile-name { font-size: 1.6rem; font-weight: 700; }
+.profile-title { color: #555; margin-bottom: 1rem; }
+.profile-description { color: #666; margin-bottom: 1.5rem; }
+
+.profile-actions { display: flex; gap: 1rem; justify-content: center; margin-bottom: 1.5rem; }
+.btn {
+    display: inline-block;
+    padding: 0.7rem 1.2rem;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    text-decoration: none;
+    text-align: center;
+    min-width: 120px;
+}
+.btn-primary { background: linear-gradient(135deg, #667eea, #764ba2); color: #fff; }
+.btn-secondary { background: #e2e8f0; color: #333; }
+.btn:hover { transform: translateY(-2px); }
+
+.social-links { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+.social-link { color: #667eea; font-weight: 600; }
+.social-link:hover { color: #764ba2; }
+
+/* CONTACT FORM */
+.form-group { margin-bottom: 1rem; display: flex; flex-direction: column; }
+label { font-weight: 600; margin-bottom: 0.3rem; }
+input, textarea {
+    padding: 0.6rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}
+textarea { min-height: 100px; resize: vertical; }
+.error { color: #e53e3e; font-size: 0.9rem; min-height: 1.2em; }
+.success { color: #22c55e; font-weight: 600; margin-top: 1rem; }
+
+@media (max-width: 480px) {
+    main { width: 95%; padding: 1.5rem; }
+    .profile-actions { flex-direction: column; }
+}
