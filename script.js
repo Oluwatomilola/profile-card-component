@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // ---------- CONTACT FORM ----------
     const form = document.getElementById('contactForm');
     if (form) {
-        const successMsg = document.querySelector('[data-testid="test-contact-success"]');
+        const successMsg = document.querySelector('[data-test-id="test-contact-success"]');
 
         form.addEventListener('submit', (e) => {
             e.preventDefault();
